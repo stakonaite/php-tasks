@@ -1,34 +1,49 @@
 <?php
-
 $sarasas = [
-    [ 'shelf1' => 
-        [ 'name' => 'kiausiniai',
-            'kiekis' => 3, 
+    'takelis1' => [
+        [
+            'cond' => 'perfect',
         ],
-        [ 'name' => 'grietine',
-            'kiekis' => 1, 
+        [
+            'pins' => [
+                [
+                    'quantity' => 5,
+                ],
+                [
+                    'position' => [
+                        [
+                            'first line' => 2,
+                            'second line' => 1,
+                            'third line' => 1,
+                            'forth line' => 1,
+                        ],
+                    ]
+                ],
+            ],
         ],
-        [ 'name' => 'jogurtas',
-            'kiekis' => 2, 
-        ],
-        [ 'name' => 'zuvis',
-            'kiekis' => 0, 
-        ],
-        ],
-    [ 'shelf2' =>
-        [ 'name' => 'pienas',
-            'kiekis' => 1, 
-        ],
-        [ 'name' => 'kefyras',
-            'kiekis' => 0, 
-        ],
-        [ 'name' => 'degtine',
-            'kiekis' => 2, 
-        ],
-        [ 'name'=> 'kecupas',
-            'kiekis' => 2, 
-        ],
-        ],
-    ];
+    ],
     
-var_dump($sarasas); 
+    'takelis2' => [
+        [
+            'cond' => 'dirty',
+        ],
+        [
+            'pins' => [
+                [
+                    'quantity' => 0,
+                ],
+                [
+                    'position' => [
+                        [
+                            'first line' => 0,
+                            'second line' => 0,
+                            'third line' => 0,
+                            'forth line' => 0,
+                        ],
+                    ]
+                ],
+            ],
+        ],
+    ],
+];
+var_dump($sarasas);
