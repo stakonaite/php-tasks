@@ -1,34 +1,53 @@
 <?php
 
-$race = [
-    'start' => [
-        'direction-rigth' => false,
-        'angle' => 180,
+$friday = [
+    ['name' => 'Dainius',
+    'condition' => 'average',
+    'drunk' => true,
     ],
-    'turn_1' => [
-        'direction-rigth' => true,
-        'angle' => 90,
+    ['name' => 'Ieva',
+    'condition' => 'bad',
+    'drunk' => true,
     ],
-    'turn_2' => [
-        'direction-rigth' => false,
-        'angle' => 150,
+    ['name' => 'Tadas',
+    'condition' => 'bad',
+    'drunk' => true,
     ],
-    'turn_3' => [
-        'direction-rigth' => true,
-        'angle' => 120,
+    ['name' => 'Kornelija',
+    'condition' => 'bad',
+    'drunk' => true,
     ],
-    'turn_4' => [
-        'direction-rigth' => false,
-        'angle' => 160,
-    ],
-    'turn_5' => [
-        'direction-rigth' => true,
-        'angle' => 80,
-    ],
-    'turn_6' => [
-        'direction-rigth' => true,
-        'angle' => 170,
+    ['name' => 'Pijus',
+    'condition' => 'average',
+    'drunk' => true,
     ],
 ];
 
-var_dump($race);
+var_dump($friday);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Amen</title>
+        <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="new.css">
+        
+        <style>
+           img.
+        </style>
+    
+    </head>
+
+    <body>
+        <div class="font">
+        <h1 class= "font_color">Expectations </h1>
+        <img class="" src="https://www.asheswines.com/images/party_plan-planning.jpg?1531766463" />
+        <h1 class= "font_color">vs Reality</h1>
+        <img src="https://www.telegraph.co.uk/content/dam/news/2018/01/22/TELEMMGLPICT000150229366_trans_NvBQzQNjv4BqpVlberWd9EgFPZtcLiMQfyf2A9a6I9YchsjMeADBa08.jpeg?imwidth=450" />
+        </div>
+    </body>
+
+</html>
