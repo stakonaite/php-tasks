@@ -1,49 +1,30 @@
 <?php
-$sarasas = [
-    'takelis1' => [
-        [
-            'cond' => 'perfect',
+
+$race = [
+    'turn_1' => [
+        'direction-rigth' => true,
+        'angle' => 90,
         ],
-        [
-            'pins' => [
-                [
-                    'quantity' => 5,
-                ],
-                [
-                    'position' => [
-                        [
-                            'first line' => 2,
-                            'second line' => 1,
-                            'third line' => 1,
-                            'forth line' => 1,
-                        ],
-                    ]
-                ],
-            ],
+        'turn_2' => [
+        'direction-rigth' => false,
+        'angle' => 150,
         ],
-    ],
-    
-    'takelis2' => [
-        [
-            'cond' => 'dirty',
+        'turn_3' => [
+        'direction-rigth' => true,
+        'angle' => 120,
         ],
-        [
-            'pins' => [
-                [
-                    'quantity' => 0,
-                ],
-                [
-                    'position' => [
-                        [
-                            'first line' => 0,
-                            'second line' => 0,
-                            'third line' => 0,
-                            'forth line' => 0,
-                        ],
-                    ]
-                ],
-            ],
+        'turn_4' => [
+        'direction-rigth' => false,
+        'angle' => 160,
         ],
-    ],
+        'turn_5' => [
+        'direction-rigth' => true,
+        'angle' => 80,
+        ],
+        'turn_6' => [
+        'direction-rigth' => true,
+        'angle' => 170,
+        ],
 ];
-var_dump($sarasas);
+
+var_dump($race);
