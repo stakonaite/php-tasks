@@ -1,30 +1,16 @@
 <?php
+$my_memories = ['rusys', 'dukokteiliai', 'darvienas', 'seseliai', 'Inga', 'blykste', 'error'];
+$draugo_memories = ['rusys', 'dukokteiliai', 'darvienas', 'tamsa', 'tamsa', 'tamsa', 'tamsa'];
 
-$friday = [
-    ['name' => 'Dainius',
-    'condition' => 'average',
-    'drunk' => true,
-    ],
-    ['name' => 'Ieva',
-    'condition' => 'bad',
-    'drunk' => true,
-    ],
-    ['name' => 'Tadas',
-    'condition' => 'bad',
-    'drunk' => true,
-    ],
-    ['name' => 'Kornelija',
-    'condition' => 'bad',
-    'drunk' => true,
-    ],
-    ['name' => 'Pijus',
-    'condition' => 'average',
-    'drunk' => true,
-    ],
-];
+$fb_index = rand(0, count($my_memories) - 1);
+$fb_text = $my_memories[$fb_index];
 
-var_dump($friday);
+$h1 = ('Kas buvo penktadieni?');
+$h2 = ('Kornelijos prisiminimai');
+$h3 = "Flashback $fb_index: $fb_text.";
+$h4 = ('Draugo prisiminimai');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,20 +20,28 @@ var_dump($friday);
         <title>Amen</title>
         <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="new.css">
-        
-        <style>
-           img.
-        </style>
-    
     </head>
 
     <body>
         <div class="font">
-        <h1 class= "font_color">Expectations </h1>
-        <img class="" src="https://www.asheswines.com/images/party_plan-planning.jpg?1531766463" />
-        <h1 class= "font_color">vs Reality</h1>
-        <img src="https://www.telegraph.co.uk/content/dam/news/2018/01/22/TELEMMGLPICT000150229366_trans_NvBQzQNjv4BqpVlberWd9EgFPZtcLiMQfyf2A9a6I9YchsjMeADBa08.jpeg?imwidth=450" />
+            <h1 class= "font_color"><?php print $h1 ?></h1>
+            <h2 class= "font_color"><?php print $h2 ?></h2>
+            <ul>
+                <?php foreach ($my_memories as $memory): ?>
+                    <li> <?php print $memory; ?> </li>
+                <?php endforeach; ?>
+            </ul>
+            
+            <h4 class= "font_color"><?php print $h4 ?></h4>
+            <ul>
+                <?php foreach ($draugo_memories as $draugo_memory): ?>
+                    <li> <?php print $draugo_memory; ?> </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <div>
+            <h3><?php print $h3 ?></h3>
         </div>
     </body>
-
-</html>
+</html> 
