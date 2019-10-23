@@ -1,31 +1,28 @@
 <?php
-$zodziai = ['Petras', 'lauke', 'lauke', 'nuo', 'ryto', 'iki', 'vakaro', '5tameaukste', 'bet', 'nieko', 'nesulauke', 'isliko', 'dziaugsmas'];
-
-$rasinys = '';
-
-for ($i = 0; $i < rand(100, 300); $i++) {
-    $random_word = $zodziai[(rand(0, count($zodziai) - 1))];
-    $rasinys .= " $random_word";
-}
-
-$h1 = ('Lietuvių egzaminas');
-$h2 = ("$rasinys");
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <title>Rasinys</title>
-        <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="new.css">
-    </head>
-
-    <body>
-        <div class="font">
-            <h1 class= "font_color"><?php print $h1; ?></h1>
-            <h2 class= "font_color"><?php print $h2; ?></h2>
-        </div>
-    </body>
-</html> 
+$drinks = [
+    [
+        'name' => 'Vilkmerges alus',
+        'price_stock' => 3.6,
+        'discount' => 0,
+        'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=7acd8bad-f09a-470c-9646-e134ddeee5d7',
+    ],
+    [
+        'name' => 'Stumbro Degtinela',
+        'price_stock' => 11.79,
+        'discount' => 5, //%
+        'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=e11360a3-0864-4441-b8da-9cbb8d189742',
+    ],
+    [
+        'name' => 'Somersby',
+        'price_stock' => 2,
+        'discount' => 0.50,
+        'img' => 'https://secure.ce-tescoassets.com/assets/HU/973/7310070764973/ShotType1_540x540.jpg',
+    ],
+    [
+        'name' => 'Tinginio pantis',
+        'price_stock' => 3,
+        'discount' => 0,
+        'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=1274dadb-426e-42b4-9af0-de26f23da80c',
+    ],
+];
+var_dump($drinks);
