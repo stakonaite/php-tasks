@@ -3,7 +3,7 @@ $drinks = [
     [
         'name' => 'Vilkmerges alus',
         'price_stock' => 3.6,
-        'discount' => 0,
+        'discount' => 0, //%
         'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=7acd8bad-f09a-470c-9646-e134ddeee5d7',
     ],
     [
@@ -15,14 +15,52 @@ $drinks = [
     [
         'name' => 'Somersby',
         'price_stock' => 2,
-        'discount' => 0.50,
+        'discount' => 3, //%
         'img' => 'https://secure.ce-tescoassets.com/assets/HU/973/7310070764973/ShotType1_540x540.jpg',
     ],
     [
         'name' => 'Tinginio pantis',
         'price_stock' => 3,
-        'discount' => 0,
+        'discount' => 4, //%
         'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=1274dadb-426e-42b4-9af0-de26f23da80c',
-    ],
+    ]
 ];
+
+foreach ($drinks as $drink_index => $drink) {
+//    $drink['price_retail'] = $drink['price_stock'] * (1 - $drink['discount'] * 0.01);
+
+    $drinks[$drink_index]['price_retail'] = $drink['price_stock'] * (1 - $drink['discount'] * 0.01);
+}
+
 var_dump($drinks);
+
+$h1 = 'Drink Catalogue';
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Rasinys</title>
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="new.css">
+    </head>
+
+    <body>
+        <h1 class= "font_color"><?php print $h1; ?></h1>
+        <div class="font background-flex">
+            <?php foreach ($drinks as $drink): ?>
+                <div class="card card-flex">
+                    <div class="disc_container">
+                        <p><?php print $drink['price_retail']; ?> €</p>
+                    </div>
+                    <div class="price_container">
+                        <p><?php print $drink['price_stock']; ?> €</p>
+                    </div>
+                    <img class="img_pic" src="<?php print $drink ['img']; ?>">
+                    <p><?php print $drink['name']; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </body>
+</html>
