@@ -27,9 +27,8 @@ $drinks = [
 ];
 
 foreach ($drinks as $drink_index => $drink) {
-//    $drink['price_retail'] = $drink['price_stock'] * (1 - $drink['discount'] * 0.01);
-
-    $drinks[$drink_index]['price_retail'] = $drink['price_stock'] * (1 - $drink['discount'] * 0.01);
+    $drinks[$drink_index]['price_retail'] = "&#8364; " .  number_format($drink['price_stock'] * (1 - $drink['discount'] * 0.01), 2, '.', '');
+    $drinks[$drink_index]['price_stock_display'] = "&#8364; " . number_format($drinks[$drink_index]['price_stock'], 2, ',', ' ');   
 }
 
 var_dump($drinks);
@@ -52,12 +51,12 @@ $h1 = 'Drink Catalogue';
             <?php foreach ($drinks as $drink): ?>
                 <div class="card card-flex">
                     <div class="disc_container">
-                        <p><?php print $drink['price_retail']; ?> €</p>
+                        <p><?php print $drink['price_retail']; ?> </p>
                     </div>
                     <div class="price_container">
-                        <p><?php print $drink['price_stock']; ?> €</p>
+                        <p><?php print $drinks[$drink_index]['price_stock_display']; ?> </p>
                     </div>
-                    <img class="img_pic" src="<?php print $drink ['img']; ?>">
+                    <img class="img_pic" src="<?php print $drink['img']; ?>">
                     <p><?php print $drink['name']; ?></p>
                 </div>
             <?php endforeach; ?>
