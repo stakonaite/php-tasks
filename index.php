@@ -1,65 +1,149 @@
 <?php
-$drinks = [
-    [
-        'name' => 'Vilkmerges alus',
-        'price_stock' => 3.6,
-        'discount' => 0, //%
-        'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=7acd8bad-f09a-470c-9646-e134ddeee5d7',
-    ],
-    [
-        'name' => 'Stumbro Degtinela',
-        'price_stock' => 11.79,
-        'discount' => 5, //%
-        'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=e11360a3-0864-4441-b8da-9cbb8d189742',
-    ],
-    [
-        'name' => 'Somersby',
-        'price_stock' => 2,
-        'discount' => 3, //%
-        'img' => 'https://secure.ce-tescoassets.com/assets/HU/973/7310070764973/ShotType1_540x540.jpg',
-    ],
-    [
-        'name' => 'Tinginio pantis',
-        'price_stock' => 3,
-        'discount' => 4, //%
-        'img' => 'https://www.barbora.lt/api/Images/GetInventoryImage?id=1274dadb-426e-42b4-9af0-de26f23da80c',
-    ]
-];
 
-foreach ($drinks as $drink_index => $drink) {
-    $drinks[$drink_index]['price_retail'] = "&#8364; " .  number_format($drink['price_stock'] * (1 - $drink['discount'] * 0.01), 2, '.', '');
-    $drinks[$drink_index]['price_stock_display'] = "&#8364; " . number_format($drinks[$drink_index]['price_stock'], 2, ',', ' ');   
+function lyginisnelyginis($skaicius) {
+    if ($skaicius % 2 == 0) {
+        print 'Lyginis ';
+    } else {
+        print 'Nelyginis ';
+    }
 }
 
-var_dump($drinks);
+lyginisnelyginis(2);
+lyginisnelyginis(3);
 
-$h1 = 'Drink Catalogue';
+function saknis($skaicius) {
+    print sqrt($skaicius);
+}
+
+saknis(9);
+
+
+$phrase = ' You are fucking genius, bro ';
+
+function filtras($tekstas) {
+    $badwords = 'fucking';
+    $goodwords = 'lovely';
+    $tekstas = str_replace($badwords, $goodwords, $tekstas);
+    print $tekstas;
+}
+
+filtras($phrase);
+
+function hello($name) {
+    return "Hello $name";
+}
+
+$h3 = hello('Kornelija');
+
+class gyvunas {
+
+    public $ausuIlgis = 10;
+    public $rusis = '';
+    public $regionas = '';
+
+    public function __construct($ausuIlgis, $rusis, $regionas) {
+        $this->ausuIlgis = $ausuIlgis;
+        $this->rusis = $rusis;
+        $this->regionas = $regionas;
+    }
+
+    public function balsas() {
+        print "Mano ausu ilgis yra $this->ausuIlgis rusis: $this->rusis ir esu is regiono $this->regionas";
+    }
+
+}
+
+$balandis = new gyvunas(3, 'paukstis', 'rytu Europa');
+print $balandis->balsas();
+
+class katinas {
+
+    public function balsas() {
+        return ' :zzz';
+    }
+
+}
+
+class Zmogus {
+
+    public function paglostyti($katinas) {
+        return " Katik paglosciau " . $katinas->balsas();
+    }
+
+}
+
+$katinas = new katinas();
+$zmogus = new Zmogus();
+print $zmogus->paglostyti($katinas);
+
+// ERROR REPORTING
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include "app/php/php.php";
+include "app/views/layouts/footer.php";
+include "app/views/layouts/head.php";
+include "app/views/layouts/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
+
+<!doctype html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Rasinys</title>
-        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="new.css">
-    </head>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <!--bootstrap-->
+        <link rel="stylesheet" href="./assets/css/bootstrap.css">
+        <link rel="stylesheet" href="./assets/css/bootstrap-reboot.css">
+        <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
 
+        <link rel="stylesheet" href="./assets/css/style.css">
+
+    </head>
     <body>
-        <h1 class= "font_color"><?php print $h1; ?></h1>
-        <div class="font background-flex">
-            <?php foreach ($drinks as $drink): ?>
-                <div class="card card-flex">
-                    <div class="disc_container">
-                        <p><?php print $drink['price_retail']; ?> </p>
-                    </div>
-                    <div class="price_container">
-                        <p><?php print $drinks[$drink_index]['price_stock_display']; ?> </p>
-                    </div>
-                    <img class="img_pic" src="<?php print $drink['img']; ?>">
-                    <p><?php print $drink['name']; ?></p>
-                </div>
-            <?php endforeach; ?>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Pradinis <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./app/views/first.php">Sporto klubai</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./app/views/second.php">Treneriai</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./app/views/second.php">Apie mus</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="img-bg">
+            <form action="" method="post">
+                <label for="spa">Ar reikalingas spa?</label>
+                <input type="radio" name="spa" value="true">
+                <input type="radio" name="spa" value="false">
+                <input type="submit">
+
+            </form>
         </div>
+<?php print $h3; ?>
+
+
+        <!--bootstrap js-->
+        <script src="./assets/js/jqery.js"></script>
+        <script src="./assets/js/bootstrap.js"></script>
+        <script src="./assets/js/bootstrap.bundle.js"></script>
     </body>
 </html>
