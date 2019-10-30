@@ -1,80 +1,38 @@
 <?php
 
-function lyginisnelyginis($skaicius) {
-    if ($skaicius % 2 == 0) {
-        print 'Lyginis ';
-    } else {
-        print 'Nelyginis ';
-    }
-}
+class person {
 
-lyginisnelyginis(2);
-lyginisnelyginis(3);
+    public $name;
+    public $surname;
+    public $id;
 
-function saknis($skaicius) {
-    print sqrt($skaicius);
-}
-
-saknis(9);
-
-
-$phrase = ' You are fucking genius, bro ';
-
-function filtras($tekstas) {
-    $badwords = 'fucking';
-    $goodwords = 'lovely';
-    $tekstas = str_replace($badwords, $goodwords, $tekstas);
-    print $tekstas;
-}
-
-filtras($phrase);
-
-function hello($name) {
-    return "Hello $name";
-}
-
-$h3 = hello('Kornelija');
-
-class gyvunas {
-
-    public $ausuIlgis = 10;
-    public $rusis = '';
-    public $regionas = '';
-
-    public function __construct($ausuIlgis, $rusis, $regionas) {
-        $this->ausuIlgis = $ausuIlgis;
-        $this->rusis = $rusis;
-        $this->regionas = $regionas;
+    function set_all_person_info($name, $surname, $id) {
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->id = $id;
     }
 
-    public function balsas() {
-        print "Mano ausu ilgis yra $this->ausuIlgis rusis: $this->rusis ir esu is regiono $this->regionas";
+    function get_all_person_info_in_row() {
+        return "
+    <tr>
+        <td>" . $this->name . "</td>
+        <td>" . $this->surname . "</td>
+        <td>" . $this->id . "</td>
+</tr>
+";
     }
 
 }
 
-$balandis = new gyvunas(3, 'paukstis', 'rytu Europa');
-print $balandis->balsas();
+$person_1 = new person();
+$person_2 = new person();
 
-class katinas {
+$person_1->set_all_person_info('Kornelija', 'Stakonaite', 356345);
+$person_2->set_all_person_info('Karolina', 'Stakonaite', 356445);
 
-    public function balsas() {
-        return ' :zzz';
-    }
 
-}
 
-class Zmogus {
 
-    public function paglostyti($katinas) {
-        return " Katik paglosciau " . $katinas->balsas();
-    }
-
-}
-
-$katinas = new katinas();
-$zmogus = new Zmogus();
-print $zmogus->paglostyti($katinas);
 
 // ERROR REPORTING
 ini_set('display_errors', 1);
@@ -93,8 +51,8 @@ include "app/views/layouts/header.php";
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+              content="width = device-width, user-scalable = no, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie = edge">
         <title>Document</title>
         <!--bootstrap-->
         <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -109,41 +67,51 @@ include "app/views/layouts/header.php";
 
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
+                <span class = "navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Pradinis <span class="sr-only">(current)</span></a>
+            <div class = "collapse navbar-collapse" id = "navbarNav">
+                <ul class = "navbar-nav">
+                    <li class = "nav-item active">
+                        <a class = "nav-link" href = "index.php">Pradinis <span class = "sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./app/views/first.php">Sporto klubai</a>
+                    <li class = "nav-item">
+                        <a class = "nav-link" href = "./app/views/first.php">Sporto klubai</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./app/views/second.php">Treneriai</a>
+                    <li class = "nav-item">
+                        <a class = "nav-link" href = "./app/views/second.php">Treneriai</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./app/views/second.php">Apie mus</a>
+                    <li class = "nav-item">
+                        <a class = "nav-link" href = "./app/views/second.php">Apie mus</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        <div class="img-bg">
-            <form action="" method="post">
-                <label for="spa">Ar reikalingas spa?</label>
-                <input type="radio" name="spa" value="true">
-                <input type="radio" name="spa" value="false">
-                <input type="submit">
+        <div>
+            <form action = "" method = "post">
+                <label for = "spa">Ar reikalingas spa?</label>
+                <input type = "radio" name = "spa" value = "true">
+                <input type = "radio" name = "spa" value = "false">
+                <input type = "submit">
 
             </form>
         </div>
-<?php print $h3; ?>
+        <table>
+            <thead>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Id</th>
+        </thead>
+        <tbody>
+<?php print $person_1->get_all_person_info_in_row(); ?>
+<?php print $person_2->get_all_person_info_in_row(); ?>
 
+        </tbody>
+    </table>
 
-        <!--bootstrap js-->
-        <script src="./assets/js/jqery.js"></script>
-        <script src="./assets/js/bootstrap.js"></script>
-        <script src="./assets/js/bootstrap.bundle.js"></script>
-    </body>
+    <!--bootstrap js-->
+    <script src="./assets/js/jqery.js"></script>
+    <script src="./assets/js/bootstrap.js"></script>
+    <script src="./assets/js/bootstrap.bundle.js"></script>
+</body>
 </html>
